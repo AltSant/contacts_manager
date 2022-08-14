@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Bare - Start Bootstrap Template</title>
+        <title>Список контактов</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -43,6 +43,17 @@
                 <p class="lead">{{co.full_name}}</p>
                 <p>{{co.birth_date}}</p>
                 {% endfor %}
+            <div>
+                {% if page.has_previous %}
+                <a href="?page={{page.previousPage_number }}">&lt;</a>
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                {% endif %}
+                Part № {{page.number}} of {{page.pagination.num_pages}}
+                {% if page.has_next %}
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="?page={{ page.next_page_number }}">&gt;</a>
+                {% endif %}
+            </div>    
             </div>
         </div>
         <!-- Bootstrap core JS-->
