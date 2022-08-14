@@ -40,6 +40,7 @@
             <div class="text-center mt-5">
                 <h1>Список контактов</h1>
                 {% for co in contact_ob %}
+               
                 <p class="lead">{{co.full_name}}</p>
                 <p>{{co.birth_date}}</p>
                 {% endfor %}
@@ -53,7 +54,17 @@
                 &nbsp;&nbsp;|&nbsp;&nbsp;
                 <a href="?page={{ page.next_page_number }}">&gt;</a>
                 {% endif %}
-            </div>    
+            </div> 
+            <div class="text-center">
+                <ul class="list-group list-group-horizontal">
+                    {% for p in pagination.page_range %}
+                    <li class="list-group-item">
+                       <a href="?page={{ p }}">{{ p }}</a>
+                       
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>   
             </div>
         </div>
         <!-- Bootstrap core JS-->

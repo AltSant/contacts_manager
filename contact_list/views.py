@@ -10,7 +10,7 @@ def contact_list(request):
     else:
         page_num =1
     page = pagination.get_page(page_num)        
-    return render(request, 'contact_list/contact_list.html', {'contact_ob':page.object_list, 'page':page})
+    return render(request, 'contact_list/contact_list.html', {'contact_ob':page.object_list, 'page':page, 'pagination':pagination})
 
     
 
