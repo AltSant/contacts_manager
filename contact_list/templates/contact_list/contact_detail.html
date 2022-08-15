@@ -1,0 +1,12 @@
+{% extends 'contact_list/base.html' %}
+
+{% block content %}
+    <div class="contact">
+       <ul class="list-group">
+        <li class="list-group-item">ФИО:  {{ contact.full_name }}</li>
+        <li class="list-group-item">Дата рождения: {{ contact.birth_date}}</li>
+        <li class="list-group-item"><a class="btn btn-default" href="{% url 'contact_edit' pk=contact.pk %}"><span class="glyphicon glyphicon-pencil">Редактировать</span></a></li>
+        <li class="list-group-item"><a class="btn btn-default" href="{% url 'contact_delete' pk=contact.pk %}">Удалить</a></li>
+    </ul>
+    </div>
+{% endblock %}
