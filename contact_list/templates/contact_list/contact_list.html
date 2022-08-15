@@ -44,27 +44,28 @@
                 <p class="lead">{{co.full_name}}</p>
                 <p>{{co.birth_date}}</p>
                 {% endfor %}
+                <div class="center">
+                    <ul class="pagination justify-content-center">
+                        {% for p in pagination.page_range %}
+                        <li class="page-item">
+                           <a class="page-link" href="?page={{ p }}">{{ p }}</a>
+                           
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div> 
             <div>
                 {% if page.has_previous %}
                 <a href="?page={{page.previousPage_number }}">&lt;</a>
                 &nbsp;&nbsp;|&nbsp;&nbsp;
                 {% endif %}
-                Part № {{page.number}} of {{page.pagination.num_pages}}
+                Part № {{page.number}} of {{pagination.num_pages}}
                 {% if page.has_next %}
                 &nbsp;&nbsp;|&nbsp;&nbsp;
                 <a href="?page={{ page.next_page_number }}">&gt;</a>
                 {% endif %}
             </div> 
-            <div class="text-center">
-                <ul class="list-group list-group-horizontal">
-                    {% for p in pagination.page_range %}
-                    <li class="list-group-item">
-                       <a href="?page={{ p }}">{{ p }}</a>
-                       
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>   
+            
             </div>
         </div>
         <!-- Bootstrap core JS-->
