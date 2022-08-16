@@ -60,11 +60,6 @@ def contact_delete(request, pk):
     except Contact.DoesNotExist:
         return HttpResponseNotFound("<h2>Person not found</h2>")    
 
-def contact_search(request):
-    search_contact = request.GET.get('search')
-    contacts_find = Contact.objects.filter(Q(full_name__icontains=search_contact))
-    return render(request, 'contact_list/contact_list.html', {'contact_ob':contacts_find} )
-
     
 
 # Create your views here.
